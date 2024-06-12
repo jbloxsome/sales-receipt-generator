@@ -20,13 +20,12 @@ export const formatReceipt = ({ products }: { products: Product[] }) => {
 
   const receiptLines = products.map((product) => {
     const { salesTax, importDuty } = calculateTax(product);
-    const totalPrice = product.price * product.quantity + salesTax + importDuty;
-    totalCost += totalPrice;
+    // const totalPrice = product.price * product.quantity + salesTax + importDuty;
+    totalCost += product.price * product.quantity + salesTax + importDuty;
     totalSalesTaxes += salesTax + importDuty;
 
     return formatReceiptItem({
       ...product,
-      totalPrice,
     });
   });
 
