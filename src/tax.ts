@@ -5,9 +5,24 @@ const IMPORT_DUTY_TAX = 0.05;
 
 const exemptions = ["book", "chocolate", "pills"];
 
+/**
+ * Rounds up a given value to the nearest 5 cents.
+ *
+ * @param {Object} params - The parameters object.
+ * @param {number} params.value - The value to be rounded up.
+ * @returns {number} - The value rounded up to the nearest 5 cents.
+ */
 export const roundUpToNearest5 = ({ value }: { value: number }) =>
   Math.ceil(value / 5) * 5;
 
+/**
+ * Calculates the sales tax and import duty for a given product.
+ *
+ * @param {Product} product - The product for which to calculate the taxes.
+ * @returns {Object} - An object containing the sales tax and import duty.
+ * @returns {number} salesTax - The calculated sales tax.
+ * @returns {number} importDuty - The calculated import duty.
+ */
 export function calculateTax({ name, price, quantity }: Product): {
   salesTax: number;
   importDuty: number;
